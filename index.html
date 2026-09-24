@@ -12,6 +12,15 @@
       tailwind.config = {
         theme: {
           extend: {
+            colors: {
+              brand: {
+                yellow: '#f9b000',
+                'yellow-dark': '#d99700',
+                graphite: '#222a30',
+                ink: '#172026',
+                fog: '#f4f5f3',
+              }
+            },
             fontFamily: {
               sans: ['Arial', 'Helvetica', 'sans-serif'],
               technical: ['"JetBrains Mono"', 'monospace'],
@@ -80,6 +89,189 @@
       .cursor-grabbing {
         cursor: grabbing !important;
       }
+
+      :root {
+        --brand-yellow: #f9b000;
+        --brand-yellow-dark: #d99700;
+        --brand-graphite: #222a30;
+        --brand-ink: #172026;
+        --brand-border: #cbd5e1;
+        --brand-surface: #ffffff;
+        --brand-fog: #f4f5f3;
+      }
+
+      body {
+        color: var(--brand-ink);
+        background: var(--brand-fog);
+      }
+
+      .label,
+      .ui-label {
+        display: block;
+        margin-bottom: 0.4rem;
+        color: #475569;
+        font-size: 0.75rem;
+        font-weight: 700;
+        line-height: 1.25rem;
+        letter-spacing: 0.01em;
+      }
+
+      .input-field,
+      .ui-input,
+      .ui-select {
+        min-height: 2.625rem;
+        width: 100%;
+        border: 1px solid var(--brand-border);
+        border-radius: 0.625rem;
+        background: var(--brand-surface);
+        padding: 0.625rem 0.75rem;
+        color: var(--brand-ink);
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.875rem;
+        font-weight: 600;
+        outline: none;
+        transition: border-color 150ms ease, box-shadow 150ms ease, background-color 150ms ease;
+      }
+
+      .input-field:hover,
+      .ui-input:hover,
+      .ui-select:hover {
+        border-color: #94a3b8;
+      }
+
+      .input-field:focus,
+      .ui-input:focus,
+      .ui-select:focus {
+        border-color: var(--brand-yellow-dark);
+        box-shadow: 0 0 0 3px rgba(249, 176, 0, 0.22);
+        background: #fffdf7;
+      }
+
+      .input-field:disabled,
+      .input-field[readonly],
+      .ui-input:disabled,
+      .ui-input[readonly] {
+        background: #f1f5f9;
+        color: #64748b;
+        cursor: not-allowed;
+      }
+
+      .ui-card {
+        overflow: hidden;
+        border: 1px solid #dbe2e8;
+        border-radius: 1rem;
+        background: white;
+        box-shadow: 0 1px 2px rgba(23, 32, 38, 0.05);
+      }
+
+      .ui-section-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 3rem;
+        padding: 0.65rem 1rem;
+        border-bottom: 3px solid var(--brand-yellow);
+        background: var(--brand-graphite);
+        color: white;
+      }
+
+      .ui-btn-primary {
+        display: inline-flex;
+        min-height: 2.5rem;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        border: 1px solid #d99700;
+        border-radius: 0.625rem;
+        background: var(--brand-yellow);
+        padding: 0.55rem 1rem;
+        color: var(--brand-graphite);
+        font-size: 0.8rem;
+        font-weight: 800;
+        transition: background-color 150ms ease, transform 150ms ease;
+      }
+
+      .ui-btn-primary:hover {
+        background: #ffc333;
+      }
+
+      .ui-btn-primary:active {
+        transform: translateY(1px);
+      }
+
+      .ui-btn-secondary {
+        display: inline-flex;
+        min-height: 2.5rem;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        border: 1px solid #cbd5e1;
+        border-radius: 0.625rem;
+        background: white;
+        padding: 0.55rem 1rem;
+        color: #334155;
+        font-size: 0.8rem;
+        font-weight: 700;
+      }
+
+      .ui-btn-secondary:hover {
+        border-color: #94a3b8;
+        background: #f8fafc;
+      }
+
+      /* Brand mapping for legacy utility classes used by existing components. */
+      .bg-slate-800,
+      .bg-slate-900,
+      .bg-slate-950 {
+        background-color: var(--brand-graphite) !important;
+      }
+      .bg-blue-600,
+      .bg-indigo-600 {
+        background-color: var(--brand-yellow) !important;
+        color: var(--brand-graphite) !important;
+      }
+      .hover\:bg-blue-700:hover,
+      .hover\:bg-blue-500:hover,
+      .hover\:bg-indigo-500:hover {
+        background-color: #ffc333 !important;
+        color: var(--brand-graphite) !important;
+      }
+      .bg-blue-50,
+      .bg-indigo-50 {
+        background-color: #fff8df !important;
+      }
+      .border-blue-100,
+      .border-blue-200,
+      .border-blue-300,
+      .border-blue-400,
+      .border-blue-500,
+      .border-blue-600,
+      .border-indigo-100,
+      .border-indigo-500 {
+        border-color: var(--brand-yellow) !important;
+      }
+      .text-blue-200,
+      .text-blue-400,
+      .text-blue-500,
+      .text-blue-600,
+      .text-blue-700,
+      .text-indigo-400,
+      .text-indigo-700 {
+        color: #8a5b00 !important;
+      }
+      .focus\:ring-blue-500:focus,
+      .focus\:ring-blue-100:focus {
+        --tw-ring-color: rgba(249, 176, 0, 0.3) !important;
+      }
+
+      @media (max-width: 640px) {
+        .input-field,
+        .ui-input,
+        .ui-select {
+          min-height: 2.875rem;
+          font-size: 1rem;
+        }
+      }
     </style>
 
   <script type="importmap">
@@ -93,7 +285,7 @@
   }
 }
 </script>
-  <script type="module" crossorigin src="/Kreator-tabliczek-znamionowych/assets/index-DLxU2801.js"></script>
+  <script type="module" crossorigin src="/Kreator-tabliczek-znamionowych/assets/index-DLgFheaZ.js"></script>
 </head>
   <body class="bg-gray-100 min-h-screen">
     <div id="root"></div>
